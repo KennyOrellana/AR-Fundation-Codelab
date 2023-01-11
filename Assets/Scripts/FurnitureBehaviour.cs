@@ -31,11 +31,11 @@ public class FurnitureBehaviour : MonoBehaviour
 
     private bool fixPosition = false; // flag used to fixed current furniture
     private int activePosition = 0;
+    public Material furnitureMaterial;
+    public GameObject Message;
 
-    // Start is called before the first frame update
     private void Start()
     {
-        // Child = transform.GetChild(0).gameObject;
         refreshUI();
     }
 
@@ -43,6 +43,7 @@ public class FurnitureBehaviour : MonoBehaviour
     {
         if (fixPosition)
         {
+            Message.SetActive(false);
             return;
         }
 
@@ -70,32 +71,14 @@ public class FurnitureBehaviour : MonoBehaviour
                     : hits.SingleOrDefault(x => x.trackableId == lockedPlane.trackableId);
         }
 
+        bool showMessage = FurnitureSurfaceManager.PlaneManager.trackables.count == 0;
+        Message.SetActive(showMessage);
+
         if (hit.HasValue)
         {
             CurrentPlane = FurnitureSurfaceManager.PlaneManager.GetPlane(hit.Value.trackableId);
             transform.position = hit.Value.pose.position;
         }
-    }
-
-    private bool WasTapped()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            return true;
-        }
-
-        if (Input.touchCount == 0)
-        {
-            return false;
-        }
-
-        var touch = Input.GetTouch(0);
-        if (touch.phase != TouchPhase.Began)
-        {
-            return false;
-        }
-
-        return true;
     }
 
     public void ToggleFurniture()
@@ -114,8 +97,6 @@ public class FurnitureBehaviour : MonoBehaviour
             activePosition = transform.childCount - 1;
         }
         refreshUI();
-        // var rendererObject = GetComponent<Renderer>();
-        // rendererObject.material.color = new Color(0.777f, 0.8f, 0.604f);
     }
 
     public void NextButton()
@@ -126,8 +107,6 @@ public class FurnitureBehaviour : MonoBehaviour
             activePosition = 0;
         }
         refreshUI();
-        // var rendererObject = GetComponent<Renderer>();
-        // rendererObject.material.color = new Color(1f, 0f, 1f);
     }
 
     private void refreshUI()
@@ -139,7 +118,23 @@ public class FurnitureBehaviour : MonoBehaviour
         }
     }
 
-    // 1. Investigar como cambiar el mueble
-    // 2. Investigar como cambiar el color o textura
-    // 3. Revisar los requerimientos
+    private void ChangeFurnitureColors(Color color)
+    {
+        furnitureMaterial.SetColor("_BaseColor", color);
+    }
+
+    public void ChangeColor(Button button)
+    {
+        ChangeFurnitureColors(button.GetComponent<Image>().color);
+    }
+
+    public void ChangeColorRandom()
+    {
+        Color randomColor = new Color(
+            Random.Range(0f, 1f),
+            Random.Range(0f, 1f),
+            Random.Range(0f, 1f)
+        );
+        ChangeFurnitureColors(randomColor);
+    }
 }
