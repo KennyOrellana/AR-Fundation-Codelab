@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e124c18ffffea4fbab349b0dde932ac2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3069598616704991970, guid: e124c18ffffea4fbab349b0dde932ac2, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -207,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c70cbc545cabc4dc294677cd8066de83, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8144394004440419581, guid: c70cbc545cabc4dc294677cd8066de83, type: 3}
       propertyPath: m_IsActive
@@ -295,6 +295,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 57b08e82b2ba249879e36120e873084d, type: 2}
+    - target: {fileID: -8518309022472757480, guid: b3ade78062ccb4a88b93ae4969012a51, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57b08e82b2ba249879e36120e873084d, type: 2}
     - target: {fileID: 39361976995927352, guid: b3ade78062ccb4a88b93ae4969012a51, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -302,6 +306,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b3ade78062ccb4a88b93ae4969012a51, type: 3}
       propertyPath: m_Name
       value: Monterosso Right Hand Facing Corner Sofa
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b3ade78062ccb4a88b93ae4969012a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2463706537061040287, guid: b3ade78062ccb4a88b93ae4969012a51, type: 3}
       propertyPath: m_IsActive
@@ -493,7 +501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3de0295bfed8d44859ec8bb9b2c1f03a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 3de0295bfed8d44859ec8bb9b2c1f03a, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -603,7 +611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a0d86e165fea846628365e4d124b6cbf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0d86e165fea846628365e4d124b6cbf, type: 3}
@@ -685,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fc6a10031ee48442990b06b3faab7ca7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc6a10031ee48442990b06b3faab7ca7, type: 3}
@@ -763,7 +771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 01b509f55374246d8ae257da5ba89aa5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2463706537061040287, guid: 01b509f55374246d8ae257da5ba89aa5, type: 3}
       propertyPath: m_IsActive
@@ -853,7 +861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2852bdac9fbce4c8e8a35bd4baa6bdb2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2463706537061040287, guid: 2852bdac9fbce4c8e8a35bd4baa6bdb2, type: 3}
       propertyPath: m_IsActive
@@ -951,7 +959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fa979b8903c1e47fdb7562de6a4a8099, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa979b8903c1e47fdb7562de6a4a8099, type: 3}
