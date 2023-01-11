@@ -26,17 +26,17 @@ using UnityEngine.XR.ARSubsystems;
 
 public class FurnitureBehaviour : MonoBehaviour
 {
-    public GameObject Child;
     public FurnitureSurfaceManager FurnitureSurfaceManager;
     public ARPlane CurrentPlane;
-    public GameObject ButtonReset;
 
     private bool fixPosition = false; // flag used to fixed current furniture
+    private int activePosition = 0;
 
     // Start is called before the first frame update
     private void Start()
     {
-        Child = transform.GetChild(0).gameObject;
+        // Child = transform.GetChild(0).gameObject;
+        refreshUI();
     }
 
     private void Update()
@@ -74,13 +74,6 @@ public class FurnitureBehaviour : MonoBehaviour
         {
             CurrentPlane = FurnitureSurfaceManager.PlaneManager.GetPlane(hit.Value.trackableId);
             transform.position = hit.Value.pose.position;
-
-            if (WasTapped())
-            {
-                FurnitureSurfaceManager.LockPlane(CurrentPlane);
-                fixPosition = true;
-                ButtonReset.SetActive(true);
-            }
         }
     }
 
@@ -105,9 +98,48 @@ public class FurnitureBehaviour : MonoBehaviour
         return true;
     }
 
-    public void ResetFurniture()
+    public void ToggleFurniture()
     {
-        fixPosition = false;
-        ButtonReset.SetActive(false);
+        fixPosition = !fixPosition;
+        GameObject.Find("ToggleFurniture").GetComponentInChildren<Text>().text = fixPosition
+            ? "Lift"
+            : "Fix";
     }
+
+    public void BackButton()
+    {
+        activePosition--;
+        if (activePosition < 0)
+        {
+            activePosition = transform.childCount - 1;
+        }
+        refreshUI();
+        // var rendererObject = GetComponent<Renderer>();
+        // rendererObject.material.color = new Color(0.777f, 0.8f, 0.604f);
+    }
+
+    public void NextButton()
+    {
+        activePosition++;
+        if (activePosition >= transform.childCount)
+        {
+            activePosition = 0;
+        }
+        refreshUI();
+        // var rendererObject = GetComponent<Renderer>();
+        // rendererObject.material.color = new Color(1f, 0f, 1f);
+    }
+
+    private void refreshUI()
+    {
+        int children = transform.childCount;
+        for (int i = 0; i < children; ++i)
+        {
+            transform.GetChild(i).gameObject.SetActive(i == activePosition);
+        }
+    }
+
+    // 1. Investigar como cambiar el mueble
+    // 2. Investigar como cambiar el color o textura
+    // 3. Revisar los requerimientos
 }
